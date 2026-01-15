@@ -59,7 +59,7 @@ Chaque étape (step) est représentée par un vecteur d’état :
 
 **Diagramme conceptuel PPO :**
 
-```text
+
      +-------------+
      |  État s_t   |
      +-------------+
