@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.egg-info/
+
+# Pytorch models
+*.pth
+
+# Pygame logs
+*.log
+
+# Visual Studio / VSCode
+.vscode/
