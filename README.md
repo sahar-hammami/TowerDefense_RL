@@ -149,24 +149,12 @@ Chaque étape (step) est représentée par un vecteur d’état :
 
 ## 🔹 Flux global
 
+1. **Environnement Tower Defense** observe l’état du jeu
+2. **Agent RL (PPO / SAC)** reçoit l’état et choisit une action
+3. **Action** est appliquée dans l’environnement
+4. L’environnement renvoie **Reward** et le nouvel état
+5. Répéter le cycle jusqu’à la fin de l’épisode
 
-[ Environnement Tower Defense ]
-           ↑
-           | Reward
-           |
-[ Agent RL (PPO / SAC) ]
-           |
-           v
-        Action
-           |
-           v
-[ Environnement Tower Defense ]
-
-
-- La boucle continue jusqu’à la fin de l’épisode (base détruite ou nombre de steps atteint).  
-- Les modèles PPO et SAC sont entraînés puis visualisés avec **Pygame**.
-
----
 
 ## 🔹 Visualisation
 
