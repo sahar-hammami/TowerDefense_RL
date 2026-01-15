@@ -128,24 +128,23 @@ Chaque étape (step) est représentée par un vecteur d’état :
 
 ## 🔹 Architecture du projet
 
-Tower Defense RL
+TowerDefense_RL/
 ├── agents/
-│   ├── ppo_agent.py      # PPO Agent
-│   └── sac_agent.py      # SAC Agent
+│ ├── ppo_agent.py # Implémentation de l'agent PPO
+│ └── sac_agent.py # Implémentation de l'agent SAC
 ├── env/
-│   └── td_env.py         # Environnement Tower Defense
+│ └── td_env.py # Environnement Tower Defense
 ├── game/
-│   ├── engine.py         # Logique du jeu
-│   ├── tower.py          # Tours
-│   └── enemy.py          # Ennemis
+│ ├── engine.py # Logique principale du jeu
+│ ├── tower.py # Définition des tours
+│ └── enemy.py # Définition des ennemis
 ├── training/
-│   ├── train_ppo.py      # Entraînement PPO
-│   └── train_sac.py      # Entraînement SAC
+│ ├── train_ppo.py # Script d'entraînement PPO
+│ └── train_sac.py # Script d'entraînement SAC
 ├── visualisation/
-│   └── render.py         # Visualisation Pygame
-├── ppo_model.pth         # Modèle PPO entraîné
-└── sac_model.pth         # Modèle SAC entraîné
-
+│ └── render.py # Visualisation Pygame
+├── ppo_model.pth # Modèle PPO entraîné
+└── sac_model.pth # Modèle SAC entraîné
 
 ---
 
