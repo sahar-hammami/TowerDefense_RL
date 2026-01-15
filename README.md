@@ -127,6 +127,7 @@ Chaque étape (step) est représentée par un vecteur d’état :
 ---
 
 ## 🔹 Architecture du projet
+
 Tower Defense RL
 ├── agents/
 │   ├── ppo_agent.py      # PPO Agent
@@ -149,6 +150,7 @@ Tower Defense RL
 ---
 
 ## 🔹 Flux global
+
 
 [ Environnement Tower Defense ]
            ↑
