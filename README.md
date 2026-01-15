@@ -59,37 +59,35 @@ Chaque étape (step) est représentée par un vecteur d’état :
 
 **Diagramme conceptuel PPO :**
 
-+-------------+
-| État s_t |
-+-------------+
-|
-v
-+-------------------+
-| Policy Network |
-| (Actor) |
-+-------------------+
-|
-v
-+-------------+
-| Action a_t |
-+-------------+
-|
-v
-+----------------+
-| Environnement |
-| TowerDefense |
-+----------------+
-|
-v
-+-------------+
-| Reward r_t |
-+-------------+
-|
-v
-Mise à jour
-Policy Network
-
----
+```text
+     +-------------+
+     |  État s_t   |
+     +-------------+
+           |
+           v
+     +-------------------+
+     |  Policy Network   |
+     |      (Actor)      |
+     +-------------------+
+           |
+           v
+     +-------------+
+     | Action a_t  |
+     +-------------+
+           |
+           v
+     +----------------+
+     |  Environnement |
+     |  TowerDefense  |
+     +----------------+
+           |
+           v
+     +-------------+
+     | Reward r_t  |
+     +-------------+
+           |
+           v
+     Mise à jour Policy Network
 
 ### 2️⃣ SAC – Soft Actor-Critic
 - **Type :** Actor-Critic off-policy
@@ -98,25 +96,23 @@ Policy Network
 
 **Diagramme conceptuel SAC :**
 
-+-------------+
-| État s_t |
-+-------------+
-|
-v
-+-----------------+ +-----------------+
-| Actor Network |------>| Action a_t |
-+-----------------+ +-----------------+
-| |
-v v
-+-----------------+ +-----------------+
-| Critic Q(s,a) |<------| Reward r_t |
-+-----------------+ +-----------------+
-|
-v
-Mise à jour
-Actor + Critic
+     +-------------+
+     |  État s_t   |
+     +-------------+
+           |
+           v
+     +-----------------+       +-----------------+
+     |   Actor Network |------>|  Action a_t     |
+     +-----------------+       +-----------------+
+           |                         |
+           v                         v
+     +-----------------+       +-----------------+
+     |   Critic Q(s,a) |<------| Reward r_t      |
+     +-----------------+       +-----------------+
+           |
+           v
+     Mise à jour Actor + Critic
 
----
 
 ### 🔹 Différences clés PPO vs SAC
 
@@ -131,40 +127,41 @@ Actor + Critic
 ---
 
 ## 🔹 Architecture du projet
-
 Tower Defense RL
 ├── agents/
-│ ├── ppo_agent.py
-│ └── sac_agent.py
+│   ├── ppo_agent.py      # PPO Agent
+│   └── sac_agent.py      # SAC Agent
 ├── env/
-│ └── td_env.py
+│   └── td_env.py         # Environnement Tower Defense
 ├── game/
-│ ├── engine.py
-│ ├── tower.py
-│ └── enemy.py
+│   ├── engine.py         # Logique du jeu
+│   ├── tower.py          # Tours
+│   └── enemy.py          # Ennemis
 ├── training/
-│ ├── train_ppo.py
-│ └── train_sac.py
+│   ├── train_ppo.py      # Entraînement PPO
+│   └── train_sac.py      # Entraînement SAC
 ├── visualisation/
-│ └── render.py
-├── ppo_model.pth
-└── sac_model.pth
+│   └── render.py         # Visualisation Pygame
+├── ppo_model.pth         # Modèle PPO entraîné
+└── sac_model.pth         # Modèle SAC entraîné
+
 
 ---
 
 ## 🔹 Flux global
 
 [ Environnement Tower Defense ]
-↑
-| Reward
-|
+           ↑
+           | Reward
+           |
 [ Agent RL (PPO / SAC) ]
-|
-v
-Action
-|
-v
+           |
+           v
+        Action
+           |
+           v
 [ Environnement Tower Defense ]
+
 
 - La boucle continue jusqu’à la fin de l’épisode (base détruite ou nombre de steps atteint).  
 - Les modèles PPO et SAC sont entraînés puis visualisés avec **Pygame**.
